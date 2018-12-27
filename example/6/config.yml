@@ -1,0 +1,81 @@
+# Boot Animation config
+#
+# 输出 Magisk 包的文件名
+'module_export_filename': '6_Module.zip'
+# 设备尺寸 [w x h]
+'device_size': [1080, 1920]
+# 指定播放动画的帧率，注意与 gif 相匹配
+'fps': 15
+# ******************************************************
+# 图层设定 'anime'
+#           - {part0}
+#           - {part1}
+#           - {...}
+# ******************************************************
+'anime':
+  - 'gif_path': './example/6/findxw_part0.gif' # gif 文件路径，建议使用绝对路径，若为相对路径则默认为相对于配置文件的路径
+
+    'cpnt_conf':
+      # 背景部分，尺寸由设备尺寸决定
+      'bg_cpnt':
+        'bg_color': 'rgba(255,255,255,255)' # 背景色，'auto' 或 'rgba(r, g, b, a)' 格式，'auto' 暂未支持
+      # 动态部件部分，该部分只能有一张 gif
+      'dyn_cpnt':
+        'resize_mode': 'scale' # 放缩方法，支持等比缩放 'scale' 和剪裁 'trim'
+        'target_size': [1080, 123] # scale 或 trim 的目标尺寸 [w x h]，scale 以 w 为准
+        'c_pos': [540, 756] # gif 的中心点坐标(相对于背景)
+        'on_top': False # 动态部件与静态部件的上下关系
+
+      'sta_cpnt':
+        - 'im_path': './example/6/android_logo.png'
+          'resize_mode': 'scale'
+          'target_size': [274, 123]
+          'c_pos': [540, 1856]
+
+    'desc_conf':
+      'type': 'c'
+      'count': '1'
+      'pause': '1'
+
+  - 'gif_path': './example/6/findxw_part1.gif'
+
+    'cpnt_conf':
+      'bg_cpnt':
+        'bg_color': 'rgba(255,255,255,255)'
+
+      'dyn_cpnt':
+        'resize_mode': 'scale'
+        'target_size': [1080, 123]
+        'c_pos': [540, 756]
+
+      'sta_cpnt':
+        - 'im_path': './example/5/android_logo.png'
+          'resize_mode': 'scale'
+          'target_size': [274, 123]
+          'c_pos': [540, 1856]
+
+    'desc_conf':
+      'type': 'p'
+      'count': '0'
+      'pause': '0'
+
+# Magisk 包中 module.prop 文件设定
+'module_prop_conf':
+  'mid': 'bootanimation-000'
+  'name': 'BootAnimation'
+  'version': '1.0'
+  'versionCode': '2018103101'
+  'author': 'Zarcher'
+  'description': 'A Boot Animation Magisk Module'
+  'minMagisk': '17000'
+
+# Magisk 包中 config.sh 文件设定
+'module_config_conf':
+  'ui_print': 'ui_print "     Boot Animation    "\n'
+  'REPLACE': 'REPLACE="\n\n"'
+
+# FOR DEBUG, DO NOT MODIFY UNLESS YOU KNOW WHAT YOU ARE DOING
+'check_gif': True # if check the gif FPS setting
+
+
+
