@@ -2,6 +2,7 @@ import functools
 import os
 import zipfile
 from time import sleep, time
+from typing import Any, List, Dict, Tuple, Optional
 
 import requests
 from colorama import Fore
@@ -45,23 +46,22 @@ def download_file(url: str, name=None) -> bool:
     if res.status_code != 200:
         print('Error in URL!')
         return False
-    total_size = int(res.headers.get('content-length', 0)) / block_size  # 确定整个安装包的大小
+    total_size = int(res.headers.get('content-length', 0)) / block_size  # acquire for download file size
     with open(name, "wb+") as f:
-        print("安装包整个大小是：{} KB，开始下载...".format(total_size))
+        print("Download file size: {} KB，start downloading...".format(total_size))
         for data in tqdm(iterable=res.iter_content(block_size),
                          total=total_size,
                          unit='KB',
                          desc=name,
                          bar_format="{l_bar}%s{bar}%s{r_bar}" % (Fore.BLUE, Fore.RESET)
                          ):
-            # 调用iter_content，一块一块的遍历要下载的内容，搭配 stream=True，此时才开始真正的下载
-            # iterable：可迭代的进度条 total：总的迭代次数 desc：进度条的前缀
+
             wrote += len(data)
             f.write(data)
     # if total_size != 0 and wrote != total_size:
-    #     print("ERROR, something went wrong")
+    #     print("Error, Something goes wrong")
     sleep(0.5)
-    print("{} 已经下载完毕！".format(name))
+    print("{} Download complete！".format(name))
     sleep(0.5)
     return True
 
@@ -108,3 +108,47 @@ def unzipfile(zip_file_path: str, unzipped_dir_path: str) -> bool:
     z.extractall(path=unzipped_dir_path)
     return True
 
+def bool_input_select(input_content: str, default: Optional[bool] = None) -> Optional[bool]:
+    """
+    according to input content return True or False
+    :param input_content: input content
+    :param default: if input is None, using default as choice
+    :return: bool, choice
+    """
+    yes_list = ['Y', 'y', 'Yes', 'yes', 'YES']
+    no_list = ['N', 'n', 'No', 'no', 'NO']
+
+    if default is True:
+        yes_list.append('')
+    elif default is False:
+        no_list.append('')
+    else:
+        pass
+
+    if input_content in yes_list:
+        return True
+    elif input_content in no_list:
+        return False
+    else:
+        return None
+
+
+def num_input_select(input_content: str, default: int = 0, valid_range: Tuple = None) -> Optional[int]:
+    if input_content is None:
+        return default
+    elif input_content.isnumeric() is True:
+        if (valid_range is not None) and ((int(input_content) < valid_range[0]) or (int(input_content) >= valid_range[1])):
+            return None
+        else:
+            return int(input_content)
+    else:
+        return None
+
+
+def quit_() -> None:
+    """
+    custom exit
+    :return: None
+    """
+    ipt = input('Press Enter to Exit...')
+    exit()

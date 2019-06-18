@@ -8,20 +8,19 @@ A tool to combine the images (png, jpg ...) and motion images (gif) to make Andr
 
 ### Python and Python Dependencies
 
-Please ensure that **Python version >= 3.7** because new features such as dataclass are used.
+```auto
+python    >= 3.6
 
-```txt
-# Python dependencies
-
-pillow   >= 5.3.0
-tqdm     >= 4.28.1
-requests >= 2.20.1
-colorama >= 0.4.1
-click    >= 7.0
-pyyaml   >= 3.13
+pillow    >= 5.3.0
+tqdm      >= 4.28.1
+requests  >= 2.20.1
+colorama  >= 0.4.1
+click     >= 7.0
+pyyaml    >= 3.13
+printtags >= 1.4
 ```
 
-Please check these dependencies, or install them using `pip install-r requirements.txt`.
+This project uses `poetry` for dependency management. Run `poetry install` in the script root directory to install the virtual environment and dependencies, and run `poetry run python run.py` to run the script.
 
 ### Other Dependencies
 
@@ -43,27 +42,19 @@ This script also uses third-party software such as [gifsicle](https://www.lcdf.o
 
 ## Getting Started
 
-Get the script. Download or use `git`
+* Get the script. Download or use `git clone`
 
-```sh
-git clone https://github.com/Zarcher0/BootAnimationMaker.git
-```
+    ```sh
+    git clone https://github.com/Zarcher0/BootAnimationMaker.git
+    ```
 
-Open Terminal(PowerShell) in the script folder
+* Prepare the material which to made animations. Put them into a subfolder(new) under the script root directory, and create a new `config.yml` file in it. Its format refers to [config_template.yml](config_template_CN.yml).
 
-Prepare the images witch to be made into animations. Then it is suggested to place them in a subfolder under the script folder, and create a new `config.yml` file in it. Its format refers to [config_template.yml](config_template.yml).
+* In root folder of the script, Then run `python run.py --config xxxx` or `poetry run python run.py --config xxxx` (if uses poetry).
 
-Then run `run.py'.
+> when run `python run.py`, the default configuration file path is `./config.yml`，use `--config` to specify a configuration path `python run.py --config xxxxx`
 
-```sh
-python run.py # The default configuration file path is "./config.yml"
-
-# Or use "--config" to specify a configuration path
-
-python run.py --config xxxxx
-```
-
-See the `example` folder for several reference examples.
+Look at the `example` folder for several reference examples.
 
 For example, to run `example/1`
 
@@ -71,7 +62,9 @@ For example, to run `example/1`
 python run.py --config ./example/1/config.yml
 ```
 
-After generating you can find the Magisk module and preview gif in `./export` directory.
+After generating you can find the Magisk module and its preview gif in `./export` directory.
+
+![Screenshot0](./example/Screenshot0.png)
 
 > Note: If the image path in the `config.yml` file is a relative path, the default is relative to the running environment. It is recommended to use an absolute path to avoid errors.
 

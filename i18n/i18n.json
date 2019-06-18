@@ -1,0 +1,10 @@
+{
+  "en": {
+    "name": "English",
+    "path": "./i18n/en.json"
+  },
+  "zh_CN": {
+    "name": "简体中文",
+    "path": "./i18n/zh_CN.json"
+  }
+}

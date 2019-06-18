@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "bootanimationmaker"
+version = "0.1.0"
+description = ""
+license = "Apache-2.0"
+authors = ["Zarcher <ycg1024@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+PrintTags = "*"
+pillow = "*"
+tqdm = "*"
+requests = "*"
+colorama = "*"
+click = "*"
+pyyaml = "*"
+
+[tool.poetry.dev-dependencies]
+pylint = "*"
+
+[tool.poetry.scripts]
+
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

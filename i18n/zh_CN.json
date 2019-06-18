@@ -1,0 +1,63 @@
+{
+  "CHECK_ENV_NOT_INSTALLED": "<{cmd}> 未安装。请检查！",
+  "CHECK_ENV_NOT_EXIST": "<{cmd}> 不存在，请检查！",
+  "CHECK_ENV_PLATFORM_NOT_SUPPORTED": "平台 <{sys}> 还未提供支持!",
+
+  "DEFAULT_LANG": "默认语言是 {lang}",
+  "DEFAULT_LANG_CHANGE": "如需更换语言，请修改 './i18n/default.json' 中 'default' 的值, 取值见'./i18n/i18n.json'",
+
+  "WELCOME": "××× 这是一个 Android 系统开机动画制作工具",
+
+  "CONFIG_NOT_FOUND": "未找到 <config.yml> 配置文件！",
+  "CONFIG_NOT_FOUND_HELP": "请将 <config.yml> 配置文件放入脚本根目录，或使用 \",--config\" 指定配置文件位置",
+  "CONFIG_LOAD_SUCCESS": "加载配置文件 <config.yml> 成功",
+
+  "EXPORT_PATH_CHECK": "正在检查输出路径...",
+  "EXPORT_PATH_IS_FILE": "{export_dir_path} 是文件！请检查 >>> Exit...",
+  "EXPORT_PATH_NOT_EXIST": "路径 <{export_dir_path}> 不存在！",
+  "EXPORT_PATH_NEW": "新建路径 <{export_dir_path}>",
+
+  "PIC_ELEMENT_CHECK": "正在检查图像素材...",
+  "PIC_ELEMENT_PATH_VALID": "  * <{path}> 路径有效.",
+  "PIC_ELEMENT_PATH_INVALID": "<{path}> 路径无效 >>> Exit...",
+  "PIC_ELEMENT_GIF_UNEQUAL_INTERVALS": "GIF 文件 <{gif_path}> 含有不等间隔帧，当前版本脚本不支持，请更换 gif >>> Exit...",
+  "PIC_ELEMENT_GIF_INFO": "GIF 文件 <{gif_path}> 信息 >",
+
+  "FPS_CHECK": "正在检查FPS...",
+  "FPS_ASSIGNED": " - 配置指定 <{assigned_fps}>",
+  "FPS_REAL": " - 实际",
+  "FPS_REAL_LIST": "   * <PART{idx}>  -  <{fps}>",
+  "FPS_ASSIGNED_REAL_DIFF": "配置文件指定的 FPS 与实际不同",
+  "FPS_USE_REAL": "是否要使用 GIF 实际 FPS [{real_fps}] ? (*Yes*/No) [INPUT] >>>   ",
+  "FPS_CHANGE": "FPS 改变 [{fps_before}] -> [{fps_after}]",
+  "FPS_UNCHANGED": "FPS 未改变",
+  "FPS_CHECK_PASS": "FPS 检查通过.",
+  "FPS_MULTIPART_DIFF": "不同 PART 的 [实际FPS] 不同！",
+  "FPS_MULTIPART_SMALL_DIFF": "PART 间 FPS 相差不大，是否采用平均值代替指定值? (*Yes*/No) [INPUT] >>> ",
+  "FPS_MULTIPART_BIG_DIFF": "PART 间 FPS 相差过大，不建议继续生成，请调整gif文件后再试! >>> Exit...",
+  "FPS_MULTIPART_INFO": "不同 PART 的 FPS 列表 {real_fps_list}",
+  "FPS_DEBUG_NOT_CHECK": "忽略检查 FPS，强制使用指定 FPS <{assigned_fps}>，可能会导致生成动画不正常",
+
+  "INPUT_INVALID": "输入无效，请重试！",
+
+  "PIC_PROCESS": "正在处理图像...",
+  "PIC_PROCESS_GIF_DISCRETE": "正在离散 GIF...",
+  "PIC_PROCESS_PREVIEW": "是否对 <PART{idx}> 组合后的图片进行预览? (Yes/*No*) [INPUT] >>> ",
+  "PIC_PROCESS_PREVIEW_ING": "正在预览...",
+  "PIC_PROCESS_PREVIEW_ED": "预览完毕！",
+  "PIC_PROCESS_GEN_CONTINUE": "是否继续生成? (*Yes*/No) [INPUT] >>> ",
+  "PIC_PROCESS_GEN_NOT_CONTINUE": "不继续生成 >>> Exit...",
+  "PIC_PROCESS_COMBINATION": "正在组合图片...",
+  "PIC_PROCESS_COMPRESSION": "正在压缩图片...",
+  "PIC_PROCESS_GENERATE_PREVIEW": "正在生成预览 GIF...",
+
+  "BOOTANIMATION_GENERATE_DESC": "正在生成 desc.txt...",
+  "BOOTANIMATION_MAKE": "正在制作 bootanimation.zip...",
+
+  "MODULE_MAKE": "正在打包...",
+
+  "CLEAN": "是否清理临时文件? (*Yes*/No) [INPUT] >>> ]",
+  "COMPLETE_0": "全部生成已完毕",
+  "COMPLETE_1": "请前往 <{path}> 寻找模块文件 <{filename}> 及其预览 gif 文件."
+
+}

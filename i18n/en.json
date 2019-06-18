@@ -1,0 +1,63 @@
+{
+  "CHECK_ENV_NOT_INSTALLED": "<{cmd}> doesn't seem to be installed, please check!",
+  "CHECK_ENV_NOT_EXIST": "<{cmd}> doesn't seem to exist, please check!",
+  "CHECK_ENV_PLATFORM_NOT_SUPPORTED": "Platform <{sys}> has not been supported!",
+
+  "DEFAULT_LANG": "The default language is {lang}",
+  "DEFAULT_LANG_CHANGE": "if you want to change language, please modify key-value in './i18n/default.json'",
+
+  "WELCOME": "××× This is a Tool to make Android Boot Animation",
+
+  "CONFIG_NOT_FOUND": "Can't find config file <config.yml>！",
+  "CONFIG_NOT_FOUND_HELP": "Please put the <config.yml> into the root directory of the script or use the '--config' to specify the location",
+  "CONFIG_LOAD_SUCCESS": "Load <config.yml> successful.",
+
+  "EXPORT_PATH_CHECK": "Checking export path...",
+  "EXPORT_PATH_IS_FILE": "{export_dir_path} is a file, please check! >>> Exit...",
+  "EXPORT_PATH_NOT_EXIST": "Path <{export_dir_path}> doesn't exist！",
+  "EXPORT_PATH_NEW": "New <{export_dir_path}>",
+
+  "PIC_ELEMENT_CHECK": "Checking image...",
+  "PIC_ELEMENT_PATH_VALID": "  * <{path}> path valid .",
+  "PIC_ELEMENT_PATH_INVALID": "<{path}> path invalid >>> Exit...",
+  "PIC_ELEMENT_GIF_UNEQUAL_INTERVALS": "GIF file <{gif_path}> contains unequal intervals, the current version of the script doesn't support, please change! >>> Exit...",
+  "PIC_ELEMENT_GIF_INFO": "GIF file <{gif_path}> info >",
+
+  "FPS_CHECK": "Checking FPS...",
+  "FPS_ASSIGNED": " - Assigned <{assigned_fps}>",
+  "FPS_REAL": " - Real",
+  "FPS_REAL_LIST": "   * <PART{idx}>  -  <{fps}>",
+  "FPS_ASSIGNED_REAL_DIFF": "Assigned FPS is different from real FPS",
+  "FPS_USE_REAL": "Using real FPS [{real_fps}] ? (*Yes*/No) [INPUT] >>>   ",
+  "FPS_CHANGE": "FPS Change [{fps_before}] -> [{fps_after}]",
+  "FPS_UNCHANGED": "FPS Unchanged",
+  "FPS_CHECK_PASS": "FPS Check pass.",
+  "FPS_MULTIPART_DIFF": "Each PART has different Real FPS！",
+  "FPS_MULTIPART_SMALL_DIFF": "Small difference，use average instead? (*Yes*/No) [INPUT] >>> ",
+  "FPS_MULTIPART_BIG_DIFF": "Big difference，please adjust the gif! >>> Exit...",
+  "FPS_MULTIPART_INFO": " FPS list of each part {real_fps_list}",
+  "FPS_DEBUG_NOT_CHECK": "Ignore checking FPS，force to use assigned FPS <{assigned_fps}>，errors may occur",
+
+  "INPUT_INVALID": "Invalid input, retry!",
+
+  "PIC_PROCESS": "Processing image...",
+  "PIC_PROCESS_GIF_DISCRETE": "Discreting GIF...",
+  "PIC_PROCESS_PREVIEW": "Preview <PART{idx}> ? (Yes/*No*) [INPUT] >>> ",
+  "PIC_PROCESS_PREVIEW_ING": "Previewing...",
+  "PIC_PROCESS_PREVIEW_ED": "Preview complete！",
+  "PIC_PROCESS_GEN_CONTINUE": "Continue? (*Yes*/No) [INPUT] >>> ",
+  "PIC_PROCESS_GEN_NOT_CONTINUE": "Interrupt! >>> Exit...",
+  "PIC_PROCESS_COMBINATION": "Combining...",
+  "PIC_PROCESS_COMPRESSION": "Compressing...",
+  "PIC_PROCESS_GENERATE_PREVIEW": "Generating preview GIF...",
+
+  "BOOTANIMATION_GENERATE_DESC": "Generating desc.txt...",
+  "BOOTANIMATION_MAKE": "Making bootanimation.zip...",
+
+  "MODULE_MAKE": "Packaging...",
+
+  "CLEAN": "Clean up temporary files? (*Yes*/No) [INPUT] >>> ]",
+  "COMPLETE_0": "All complete",
+  "COMPLETE_1": "Go <{path}> to find module file <{filename}> and its preview gif."
+
+}

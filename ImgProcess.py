@@ -5,40 +5,12 @@ import os
 import platform
 import shutil
 import subprocess
-from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Tuple, Union
 
 from colorama import Fore
 import PIL
 from PIL import GifImagePlugin, Image, ImageColor, ImageSequence
 from tqdm import tqdm
-
-
-def check_env() -> bool:
-    """
-    check the system environment, tool's Availability such as 'gifsicle', 'pngquant'
-    :return: bool
-    """
-    e = platform.uname()
-
-    if e.system == 'Linux':
-        cmds = ['gifsicle', 'pngquant']
-        for cmd in cmds:
-            if shutil.which(cmd) is None:
-                print(f'<{cmd}> doesn\'t seem to be installed, please check!')
-                return False
-
-    elif e.system == 'Windows':
-        cmds = ['.\\bin\\gifsicle\\gifsicle.exe', '.\\bin\\pngquant\\pngquant.exe']
-        for cmd in cmds:
-            if shutil.which(cmd) is None:
-                print(f'<{cmd}> doesn\'t seem to exist, please check!')
-                return False
-    else:
-        print(f'Platform <{e.system}> has not been supported!')
-        return False
-
-    return True
 
 
 def gif2png(gif_path: str, to_dir_path: str, temp_im_path: str = './temp.gif') -> None:
@@ -199,17 +171,17 @@ def auto_bg_color(im_path: str):
     return (0, 0, 0, 255)
 
 
-@dataclass
-class PasteConf:
+class PasteConf():
     """
     paste configuration class
     """
-    im_path: Optional[str]
-    resize_mode: str
-    target_w: int
-    target_h: int
-    c_pos_x: int
-    c_pos_y: int
+    def __init__(self, im_path: Optional[str], resize_mode: str, target_w: int, target_h: int, c_pos_x: int, c_pos_y: int):
+        self.im_path = im_path
+        self.resize_mode = resize_mode
+        self.target_w = target_w
+        self.target_h = target_h
+        self.c_pos_x = c_pos_x
+        self.c_pos_y = c_pos_y
 
 
 def _paste(bg: Image, p_conf: PasteConf) -> None:

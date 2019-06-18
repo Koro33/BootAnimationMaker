@@ -26,7 +26,7 @@ def desc_file_creat(desc_path: str, desc_conf: Dict) -> IO:
     height = desc_conf.get('height')
     fps = desc_conf.get('fps')
 
-    with open(desc_path, mode="w+") as desc_f:
+    with open(desc_path, mode="w+", newline='\n') as desc_f:
         content = "{} {} {}\n".format(width, height, fps)
         for part in desc_conf.get('parts'):
             content += "{} {} {} {}\n".format(part['type'], part['count'], part['pause'], part['path'])
@@ -54,10 +54,16 @@ def template_prepare(template_dir_path: str, template_file_name: str, download_u
     :param unzip_dir_path: path to unzip
     :return: None
     """
+    # TODO: 更新 updater-binary
     template_file_path = os.path.join(template_dir_path, template_file_name)
     if not os.path.exists(template_file_path):
         utils.download_file(download_url, template_file_path)
     utils.unzipfile(template_file_path, unzip_dir_path)
+
+
+def update_binary_modify(update_binary_file_path: str, module_installer_sh_url: str):
+    utils.download_file(module_installer_sh_url, update_binary_file_path)
+    pass
 
 
 def module_prop_modify(module_prop_file_path: str, module_prop_conf: Dict) -> None:
@@ -72,7 +78,6 @@ def module_prop_modify(module_prop_file_path: str, module_prop_conf: Dict) -> No
     'versionCode': '2018103101'
     'author': 'Zarcher'
     'description': 'A Boot Animation Magisk Module'
-    'minMagisk': '17000'
     }
     :return: None
     """
@@ -82,11 +87,10 @@ def module_prop_modify(module_prop_file_path: str, module_prop_conf: Dict) -> No
         f"version={module_prop_conf.get('version')}\n",
         f"versionCode={module_prop_conf.get('versionCode')}\n",
         f"author={module_prop_conf.get('author')}\n",
-        f"description={module_prop_conf.get('description')}\n",
-        f"minMagisk={module_prop_conf.get('minMagisk')}\n"
+        f"description={module_prop_conf.get('description')}\n"
     ]
     content = ''.join(content_list)
-    with open(module_prop_file_path, 'w+') as mp_f:
+    with open(module_prop_file_path, 'w+', newline='\n') as mp_f:
         mp_f.write(content)
 
 
@@ -117,9 +121,9 @@ def module_config_modify(module_config_file_path: str, module_config_conf: Optio
         re.compile('REPLACE="\n"')
     ]
 
-    with open(module_config_file_path, 'r') as f:
+    with open(module_config_file_path, 'r', newline='\n') as f:
         content = f.read()
-    with open(module_config_file_path, 'w') as f:
+    with open(module_config_file_path, 'w', newline='\n') as f:
         for patt, sub_content in zip(patts, sub_contents):
             # print(re.findall(patt, content))
             content = re.sub(patt, sub_content, content)
