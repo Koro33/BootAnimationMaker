@@ -108,5 +108,8 @@ venv.bak/
 .idea
 
 # peotry
-
 poetry.lock
+
+# Custom
+config.yml
+export

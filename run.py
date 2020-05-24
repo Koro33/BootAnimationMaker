@@ -107,6 +107,7 @@ def main(config):
 
     template_file_name = 'magisk-module-installer-master.zip'
     template_download_url = 'https://github.com/topjohnwu/magisk-module-installer/archive/master.zip'
+    # template_download_url = 'https://github.com/topjohnwu/magisk-module-installer/archive/73dbc1c90dfff16c2d36f453acdeb4b750ca460b.zip'
     template_dir_path = os.path.join(export_temp_dir_path, 'magisk-module-installer-master')
     module_installer_sh_url = "https://raw.githubusercontent.com/topjohnwu/Magisk/master/scripts/module_installer.sh"
     update_binary_file_path = os.path.join(template_dir_path, 'META-INF', 'com', 'google', 'android', 'update-binary')
@@ -338,6 +339,10 @@ def main(config):
     # Make module
 
     pt.info(show_text.get("MODULE_MAKE"))
+
+    # temporary fix for invalid template url
+    shutil.copy(template_file_name, export_dir_path)
+
     # Prepare Magisk template
     template_prepare(
         template_dir_path=export_dir_path,

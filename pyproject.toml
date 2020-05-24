@@ -7,7 +7,7 @@ authors = ["Zarcher <ycg1024@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 PrintTags = "*"
 pillow = "*"
 tqdm = "*"
