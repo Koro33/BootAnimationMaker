@@ -81,7 +81,7 @@ def main(config):
     all_config = dict()
     try:
         with open(config_file_path, 'r', encoding='utf-8') as f:
-            all_config = yaml.load(f)
+            all_config = yaml.load(f, Loader=yaml.Loader)
 
     except FileNotFoundError:
         pt.error(show_text.get('CONFIG_NOT_FOUND'))
@@ -113,7 +113,8 @@ def main(config):
     update_binary_file_path = os.path.join(template_dir_path, 'META-INF', 'com', 'google', 'android', 'update-binary')
     module_prop_file_path = os.path.join(template_dir_path, 'module.prop')
     module_install_file_path = os.path.join(template_dir_path, 'install.sh')
-    module_media_dir_path = os.path.join(template_dir_path, 'system', 'media')
+    media_dir_path = all_config.get('media_dir_path', ['system', 'media'])
+    module_media_dir_path = os.path.join(template_dir_path, *media_dir_path)
     module_placeholder_file_path = os.path.join(template_dir_path, 'system', 'placeholder')
     module_export_file_path = os.path.join(export_dir_path, module_export_filename)
 

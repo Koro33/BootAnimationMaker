@@ -141,7 +141,7 @@ def module_pack(bootani_zip_path: str, module_media_dir_path: str, placeholder_p
     :param module_export_file_path:
     :return: None
     """
-    os.mkdir(module_media_dir_path)
+    os.makedirs(module_media_dir_path)
     shutil.move(bootani_zip_path, module_media_dir_path)
     os.remove(placeholder_path)
     utils.dir2zipfile(template_dir_path, module_export_file_path)

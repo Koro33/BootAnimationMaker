@@ -1,9 +1,16 @@
 # Boot Animation Maker config template
 #
+
 # Magisk Module output filename
 'module_export_filename': 'BootAniMagiskModule.zip'
+
 # Screen size [w x h], use the maximum size
 'device_size': [1080, 1920]
+
+# For some phone model，the location of Bootanimation.zip may be different e.g. Google Pixel
+# Uncomment it when use custom path
+#'media_dir_path': ['system', 'product', 'media']
+
 # Specify the FPS, it should be matched to gif,
 # For animation contains only one part, If it doesn't match, the script will ask if to replace the this FPS with the actual FPS.
 # For animation contains more than one part, each gif needs to have the same or similar FPS (diff<=5), the script will use the average of FPS instead，If the difference is too large, stop generating.

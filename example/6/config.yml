@@ -6,6 +6,9 @@
 'device_size': [1080, 1920]
 # 指定播放动画的帧率，注意与 gif 相匹配
 'fps': 15
+# 对于某些机型，Bootanimation.zip 的路径可能会不同，比如 Google Pixel
+# 清除注释以自定义路径
+# 'media_dir_path': ['system', 'product', 'media']
 # ******************************************************
 # 图层设定 'anime'
 #           - {part0}

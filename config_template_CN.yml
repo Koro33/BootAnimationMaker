@@ -1,9 +1,16 @@
 # Boot Animation Maker 配置文件模板
 #
+
 # Magisk Module 输出的文件名
 'module_export_filename': 'BootAniMagiskModule.zip'
+
 # 设备尺寸 [w x h]，异形屏考虑使用最大外边框尺寸
 'device_size': [1080, 1920]
+
+# 对于某些机型，Bootanimation.zip 的路径可能会不同，比如 Google Pixel
+# 清除注释以自定义路径
+# 'media_dir_path': ['system', 'product', 'media']
+
 # 指定播放动画的帧率，注意与 gif 相匹配,
 # 对于单 part 的动画，如果不匹配则脚本运行过程中会提示是否以实际 FPS 代替指定的 FPS
 # 对于多个 part 的动画，各个 gif 需要 FPS 数相同或相近(diff<=5)，如果相近则会提示使用两者的平均值代替指定的 FPS，如果 FPS 相差过大则停止生成
