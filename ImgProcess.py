@@ -41,8 +41,8 @@ def gif2png(gif_path: str, to_dir_path: str, temp_im_path: str = './temp.gif') -
 
         for index, frame in enumerate(im_iter):
             # print("saving {} frame {}, {} {}".format(to_dir_path, index, frame.size, frame.tile))
-            if not frame.getpalette():
-                frame.putpalette(p)
+            # if not frame.getpalette():
+            #     frame.putpalette(p)
 
             new_frame = Image.new('RGBA', frame.size)
 
@@ -200,7 +200,7 @@ def _paste(bg: Image, p_conf: PasteConf) -> None:
         if p_conf.resize_mode == 'scale':
             # 缩放贴图，以宽 target_w 为准，等比计算高度，可放大缩小
             p_conf.target_h = int(p_conf.target_w / im_w * im_h)
-            im = im.resize((p_conf.target_w, p_conf.target_h), Image.ANTIALIAS)
+            im = im.resize((p_conf.target_w, p_conf.target_h), Image.LANCZOS)
         elif p_conf.resize_mode == 'trim':
             # 裁剪贴图，默认中心裁剪，只能缩小
             if p_conf.target_w > im_w:
